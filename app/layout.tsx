@@ -5,6 +5,8 @@ import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from '@clerk/themes'
 import { ThemeProvider } from '@/components/theme-provider'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 //const inter = Inter({ subsets: ['latin'] })
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,15 +25,65 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider
+    
       appearance={{
-        baseTheme: dark
+        layout:{
+          socialButtonsVariant: "blockButton"
+        },   
+        elements: {
+          rootBox: "bg-background ",
+          card: "bg-background rounded-lg shadow-lg border-white border-1",
+          socialButtons: " ",
+          socialButtonsBlockButton: "dark:hover:bg-foreground/10 rounded-lg",
+          alertText: "text-primary",
+          headerTitle: "text-primary",
+          headerSubtitle: "text-primary",
+          footerActionText: "text-primary",
+          footerText: "text-primary",
+          socialButtonsBlockButtonText: "text-primary",
+          socialButtonsBlockButtonArrow: "text-primary",
+          navbarButtonIcon: "text-primary",
+          navbarMobileMenuButtonIcon: "text-primary",
+          navbarMobileMenuButtonText: "text-primary",
+          profileSectionTitleText: "text-primary",
+          profileSectionSubtitleText: "text-primary",
+          profileSectionActionText: "text-primary",
+          navbarButton: "text-primary",
+          navbar: "dark:bg-black dark:text-primary",
+          navbarMobileMenuButton: "text-primary",
+          modalCloseButton: "text-primary",
+          profileSectionPrimaryButton: "text-primary",
+          accordionTriggerButton: "text-primary",
+          accordionContent: "text-primary",
+          activeDevice: "text-primary",
+          userButtonPopoverActionButton: "text-primary",
+          userButtonPopoverActionButtonText: "text-primary",
+          userButtonPopoverActionButtonIcon: "text-primary",
+          userPreviewTextContainer: "text-primary",
+          userPreviewSecondaryIdentifier: "text-primary",
+          breadcrumbsItem: "text-primary",
+          breadcrumbsItemLink: "text-primary",
+          breadcrumbsItemIcon: "text-primary",
+          pageHeaderTitle: "text-primary",
+          pageHeaderSubtitle: "text-primary",
+          formFieldLabel: "text-primary",
+          formFieldDescription: "text-primary",
+          formFieldError: "text-destructive",
+          formFieldInput: "text-primary bg-background border border-white border-1",
+          formFieldInputPlaceholder: "text-primary",
+          
+          footerActionLink: cn(
+            buttonVariants({variant: "link"}),
+            "p-0 m-0 justify-start items-start text-xs"
+          ),
+        }
+        
       }}>
       <html lang="en">
         <body className={poppins.className}>
           <ThemeProvider
-          attribute='class'
-          forcedTheme='dark'
-          
+            attribute='class'
+
           >
             {children}
           </ThemeProvider>
