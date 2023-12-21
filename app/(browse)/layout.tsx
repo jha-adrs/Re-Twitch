@@ -1,11 +1,17 @@
+
+import {Container} from "./_components/container"
 import { Navbar } from "./_components/navbar"
+import Sidebar from "./_components/sidebar"
 
 const BrowseLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
             <Navbar />
-            <div className="flex pt-20 h-full">
-                {children}
+            <div className="flex pt-14 h-full">
+                <Sidebar />
+                <Container>
+                    {children}
+                </Container>
             </div>
         </>
     )

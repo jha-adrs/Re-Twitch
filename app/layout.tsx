@@ -32,7 +32,7 @@ export default function RootLayout({
         },   
         elements: {
           rootBox: "bg-background ",
-          card: "bg-background rounded-lg shadow-lg border-white border-1",
+          card: "dark:bg-neutral-900 bg-white rounded-lg shadow-lg ",
           socialButtons: " ",
           socialButtonsBlockButton: "dark:hover:bg-foreground/10 rounded-lg",
           alertText: "text-primary",
@@ -74,7 +74,7 @@ export default function RootLayout({
           
           footerActionLink: cn(
             buttonVariants({variant: "link"}),
-            "p-0 m-0 justify-start items-start text-xs"
+            "p-0 m-0 justify-start items-start text-xs h-auto focus-visible:outline-none focus-visible:ring-0 "
           ),
         }
         

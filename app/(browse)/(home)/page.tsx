@@ -4,16 +4,12 @@ import { UserButton } from '@clerk/nextjs'
 import { dark } from '@clerk/themes'
 import React from 'react'
 
-export default function Home(){
-    return (<div>
-      <ModeToggle />
-      <p>
-        You are here means you are authenticated
-        <div >
-        <UserButton/>
-        </div>
-      </p>
-    </div>
-    )
+export default function Home() {
+  return (<div>
+    <h1>
+      Home Page
+    </h1>
+  </div>
+  )
 
 }

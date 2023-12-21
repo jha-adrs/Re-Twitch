@@ -44,7 +44,7 @@ const Search = () => {
                     )
                 }
             <Button type="submit" size="sm" variant="secondary" className='rounded-l-none'>
-                <SearchIcon className='w-5 h-5 text-muted-foreground' />
+                <SearchIcon className='w-5 h-5 text-muted-foreground hover:opacity-75' />
             </Button>
         </form>
     )
