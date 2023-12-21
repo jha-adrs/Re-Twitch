@@ -17,7 +17,7 @@ export const Wrapper = ({ children }: WrapperProps) => {
     }, []);
     if (!isClient) {
         return (
-            <aside className="fixed left-0 flex flex-col w-60 bg-accent dark:bg-neutral-900 h-full border-r border-muted-background">
+            <aside className="fixed left-0 flex flex-col lg:w-60 bg-accent dark:bg-neutral-900 h-full border-r border-muted-background">
                 <ToggleSkeleton />
                 <RecommendedSkeleton />
             </aside>
