@@ -74,7 +74,7 @@ export const UserItem = ({
 
 export const UserItemSkeleton = () => {
     return(
-        <li className="flex items-center  gap-x-2 lg:px-3 py-2">
+        <li className="flex items-center  gap-x-4 lg:px-3 py-2">
             <Skeleton className="w-10 h-10 rounded-full" />
             <div className="flex-1 hidden lg:block">
                 <Skeleton className="h-6"/>

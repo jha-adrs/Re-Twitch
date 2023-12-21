@@ -5,7 +5,7 @@ import { logger } from "./logger";
 
 export const getRecommended = async () => {
     try {
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        //await new Promise(resolve => setTimeout(resolve, 5000));
         const self = await getSelf();
         let whereClause : object = {};
         if(self) whereClause = { id: { not: self?.id } };

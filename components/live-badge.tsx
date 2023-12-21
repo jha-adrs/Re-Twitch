@@ -5,7 +5,7 @@ interface LiveBadgeProps {
 }
 
 export const LiveBadge = ({ className }: LiveBadgeProps) => {
-    console.log("live badge");
+    
     return (
         <div className={cn(
             " bg-red-500 text-center p-0.5 px-1.5 rounded-md text-[10px] border border-background font-semibold text-white",
