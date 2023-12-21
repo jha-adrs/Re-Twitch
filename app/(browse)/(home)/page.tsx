@@ -10,8 +10,7 @@ export default function Home(){
       <p>
         You are here means you are authenticated
         <div >
-        <UserButton
-        afterSignOutUrl='/'/>
+        <UserButton/>
         </div>
       </p>
     </div>
