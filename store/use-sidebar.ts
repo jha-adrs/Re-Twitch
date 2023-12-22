@@ -12,3 +12,12 @@ export const useSidebar = create<SideBarStore>((set)=> ({
     onCollapse: () => set(()=> ({collapsed: true}))
 }));
 
+interface ThemeStore{
+    theme: "dark" | "light" | "system";
+    onChange: (theme :any) => void;
+}
+
+export const useCustomTheme = create<ThemeStore>((set)=> ({
+    theme: "system",
+    onChange: (theme) => set(()=> ({theme}))
+}));

@@ -11,10 +11,11 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useCustomTheme } from "@/store/use-sidebar"
 
 export function ModeToggle({...props}) {
-    const { setTheme } = useTheme()
-
+    const { setTheme } = useTheme();
+    const {theme,onChange} = useCustomTheme();
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -25,13 +26,22 @@ export function ModeToggle({...props}) {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
+                <DropdownMenuItem onClick={() => {
+                    setTheme("light")
+                    onChange("system");
+                }}>
                     Light
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <DropdownMenuItem onClick={() => {
+                    setTheme("dark")
+                    onChange("dark");
+                }}>
                     Dark
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                <DropdownMenuItem onClick={() => {
+                    setTheme("system");
+                    onChange("system");
+                }}>
                     System
                 </DropdownMenuItem>
             </DropdownMenuContent>

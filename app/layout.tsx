@@ -7,6 +7,7 @@ import { dark } from '@clerk/themes'
 import { ThemeProvider } from '@/components/theme-provider'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import {Toaster} from "sonner"
 //const inter = Inter({ subsets: ['latin'] })
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Check if it is client side or server side
   return (
     <ClerkProvider
     
@@ -81,10 +83,12 @@ export default function RootLayout({
       }}>
       <html lang="en">
         <body className={poppins.className}>
+          
           <ThemeProvider
             attribute='class'
 
           >
+            <Toaster theme='system'/>
             {children}
           </ThemeProvider>
         </body>

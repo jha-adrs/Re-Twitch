@@ -11,7 +11,10 @@ export const getRecommended = async () => {
         if(self) whereClause = { id: { not: self?.id } };
 
         const users = await db.user.findMany({
-            where: whereClause
+            where: whereClause,
+            orderBy:{
+                createdAt: "desc" // Add following count, watching count etc
+            }
         }
         );
         logger.info("getRecommended: ", users);
