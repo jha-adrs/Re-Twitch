@@ -5,6 +5,7 @@ interface HintProps {
     label: string;
     children : React.ReactNode;
     asChild? : boolean;
+    delayDuration? : number;
     side? : "top" | "bottom" | "left" | "right";
     align? : "start" | "center" | "end";
     className? : string;
@@ -16,11 +17,12 @@ export const Hint = ({
     asChild = false,
     side = "top",
     align = "center",
+    delayDuration = 0,
     className = ""
 }: HintProps) => {
   return (
     <TooltipProvider >
-        <Tooltip delayDuration={0}>
+        <Tooltip delayDuration={delayDuration}>
             <TooltipTrigger className={className} asChild={asChild}>
                 {children}
             </TooltipTrigger>

@@ -2,6 +2,8 @@ import { getSelfByUsername } from '@/lib/auth-service';
 import { notFound, redirect } from 'next/navigation';
 import React from 'react'
 import { Navbar } from './_components/navbar';
+import { Sidebar } from './_components/sidebar';
+import { Container } from './_components/container';
 interface CreatorLayoutProps {
     params: { username: string; }
     children: React.ReactNode;
@@ -14,10 +16,13 @@ const CreatorLayout = async ({ params, children }: CreatorLayoutProps) => {
     };
     return (
         <>
-        <Navbar />
-        <div className='flex h-full pt-20'>
-            {children}
-        </div>
+            <Navbar />
+            <div className='flex h-full pt-14'>
+                <Sidebar />
+                <Container>
+                    {children}
+                </Container>
+            </div>
         </>
     )
 }
