@@ -6,17 +6,46 @@ import { logger } from "./logger";
 export const getRecommended = async () => {
     try {
         //await new Promise(resolve => setTimeout(resolve, 5000));
-        const self = await getSelf();
-        let whereClause : object = {};
-        if(self) whereClause = { id: { not: self?.id } };
+        let userId;
 
-        const users = await db.user.findMany({
-            where: whereClause,
-            orderBy:{
-                createdAt: "desc" // Add following count, watching count etc
-            }
+
+        try {
+            const self = await getSelf();
+            userId = self?.id;
+        } catch (error) {
+            userId = null;
         }
-        );
+        let users = [];
+
+        if (userId) {
+            users = await db.user.findMany({
+                where: {
+                    AND: [
+                        {
+                            NOT: { id: userId }
+                        },
+                        {
+                            NOT: { followedBy: { some: { followerId: userId } } }
+                        },
+                        {
+                            NOT: {
+                                blocking: {
+                                    some: { blockedId: userId }
+                                }
+                            }
+                        }
+                    ]
+                }
+            })
+        } else {
+            users = await db.user.findMany({
+                orderBy: {
+                    createdAt: "desc"
+                }
+            })
+        }
+
+
         logger.info("getRecommended: ", users);
         return users;
     } catch (error) {

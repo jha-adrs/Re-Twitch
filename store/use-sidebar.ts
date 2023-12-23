@@ -18,6 +18,6 @@ interface ThemeStore{
 }
 
 export const useCustomTheme = create<ThemeStore>((set)=> ({
-    theme: "system",
+    theme: "dark",
     onChange: (theme) => set(()=> ({theme}))
 }));

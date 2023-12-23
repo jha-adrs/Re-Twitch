@@ -40,7 +40,7 @@ export const Recommended = ({ data }: RecommendedProps) => {
 export const RecommendedSkeleton = () => {
     return(
         <>
-        <div className="pl-6 mb-4">
+        <div className="pl-6 mb-4 mt-4">
             <Skeleton className="hidden lg:block h-5 w-24" />
         </div>
         <ul className="space-y-2 px-2">

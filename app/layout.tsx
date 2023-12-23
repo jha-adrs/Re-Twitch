@@ -88,7 +88,10 @@ export default function RootLayout({
             attribute='class'
 
           >
-            <Toaster theme='system'/>
+            <Toaster 
+              richColors
+              
+            />
             {children}
           </ThemeProvider>
         </body>

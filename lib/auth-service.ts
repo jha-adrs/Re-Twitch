@@ -21,3 +21,25 @@ export const getSelf = async () => {
     }
     return user;
 };
+
+export const getSelfByUsername = async (username: string) => {
+    const user = await currentUser();
+    if(!user || !user.username) {
+        throw new Error("Unauthorized");
+    }
+    const self = await db.user.findUnique({
+        where:{
+            username
+        }
+    });
+    if(!self) {
+        logger.error("User not found in DB, but found in Clerk");
+        throw new Error("User not found in DB");
+    }
+    if(self.username !== user.username) {
+        logger.error("Unauthorized, user does not match");
+        throw new Error("Unauthorized");
+    }
+    return self;
+
+}
