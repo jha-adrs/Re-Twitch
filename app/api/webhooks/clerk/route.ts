@@ -52,7 +52,12 @@ export async function POST(req: Request) {
                 data: {
                     externalUserId: id,
                     username: username,
-                    imageUrl: image_url
+                    imageUrl: image_url,
+                    stream:{
+                        create: {
+                            name: `${username}'s stream`
+                        }
+                    }
                 }
             });
         } else if (eventType === "user.updated") {

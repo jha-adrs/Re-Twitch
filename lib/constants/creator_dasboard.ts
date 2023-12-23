@@ -21,22 +21,22 @@ export const getSiderbarItems = (user:UserProp): SidebarItemType[] => {
     return [
         {
             label: "Stream",
-            href: `u/${user?.username}`,
+            href: `/u/${user?.username}`,
             icon: Fullscreen
         },
         {
             label: "Keys",
-            href: `u/${user?.username}/keys`,
+            href: `/u/${user?.username}/keys`,
             icon: KeyRound
         },
         {
             label: "Chat",
-            href: `u/${user?.username}/chat`,
+            href: `/u/${user?.username}/chat`,
             icon: MessageSquareText
         },
         {
             label: "Community",
-            href: `u/${user?.username}/community`,
+            href: `/u/${user?.username}/community`,
             icon: Users2
         }
     ]

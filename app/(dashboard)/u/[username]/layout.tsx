@@ -11,8 +11,8 @@ interface CreatorLayoutProps {
 const CreatorLayout = async ({ params, children }: CreatorLayoutProps) => {
     if (!params.username) return notFound();
     const self = await getSelfByUsername(params.username);
-    if (!self) {
-        return redirect("/");
+    if (!self || self?.username !== params?.username) {
+        return notFound();
     };
     return (
         <>

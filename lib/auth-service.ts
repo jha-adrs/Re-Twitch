@@ -3,10 +3,11 @@ import { db } from "@/lib/db";
 import { logger } from "@/lib/logger";
 
 export const getSelf = async () => {
-    const self = await currentUser();
+    try {
+        const self = await currentUser();
 
     if (!self || !self.username) {
-        logger.warn("Unauthorized, user not found");
+        logger.warn("Unauthorized, user not found", self);
         return null;
     }
     const user = await db.user.findUnique({
@@ -17,15 +18,19 @@ export const getSelf = async () => {
 
     if (!user) {
         logger.warn("Unauthorized, user not found in DB");
-        throw new Error("Unauthorized");
+        return null;
     }
     return user;
+    } catch (error) {
+        logger.error("Error in auth-service getSelf",error);
+        return null;
+    }
 };
 
 export const getSelfByUsername = async (username: string) => {
     const user = await currentUser();
     if(!user || !user.username) {
-        throw new Error("Unauthorized");
+        return null;
     }
     const self = await db.user.findUnique({
         where:{
@@ -34,6 +39,7 @@ export const getSelfByUsername = async (username: string) => {
     });
     if(!self) {
         logger.error("User not found in DB, but found in Clerk");
+        //return null;
         throw new Error("User not found in DB");
     }
     if(self.username !== user.username) {
