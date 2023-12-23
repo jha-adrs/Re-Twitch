@@ -1,5 +1,5 @@
 "use client"
-import { getSiderbarItems } from "@/lib/constants/creator_dasboard";
+import { getSiderbarItems } from "@/lib/constants/creator_dashboard";
 //import { cn } from "@/lib/utils";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";

@@ -2,7 +2,7 @@
 import { Hint } from '@/components/hint';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { SidebarItemType } from '@/lib/constants/creator_dasboard'
+import { SidebarItemType } from '@/lib/constants/creator_dashboard'
 import { cn } from '@/lib/utils';
 import { useCreatorSidebar } from '@/store/use-creator-sidebar';
 import Link from 'next/link';
