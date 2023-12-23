@@ -37,3 +37,13 @@ export const Navigation = () => {
         </ul>
     )
 }
+
+export const NavigationSkeleton = () => {
+    return(
+        <ul className="space-y-2  pt-4 lg:pt-0">
+            {[...Array(4)].map((_, index) => {
+                return <NavItemSkeleton key={index} />
+            })}
+        </ul>
+    )
+}

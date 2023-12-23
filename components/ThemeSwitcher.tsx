@@ -16,14 +16,11 @@ import { useIsClient } from "usehooks-ts"
 import { Skeleton } from "./ui/skeleton"
 
 export function ModeToggle({...props}) {
-    const isClient = useIsClient();
     const { setTheme } = useTheme();
     const {theme,onChange} = useCustomTheme();
 
     return (
-        <React.Suspense fallback={ModeToggleSkeleton}>
             
-            {isClient && (
                 <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="icon" className="aspect-square" {...props}>
@@ -53,14 +50,7 @@ export function ModeToggle({...props}) {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-            )}
-        </React.Suspense>
+            
     )
 }
 
-export const ModeToggleSkeleton =  
-    (
-        <Button variant="outline" size="icon" className="aspect-square">
-            <Skeleton className="h-[1.2rem] w-[1.2rem]" />
-        </Button>
-    )
