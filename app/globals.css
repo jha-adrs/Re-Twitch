@@ -85,3 +85,9 @@ body,
     opacity: .85;
   }
 }
+
+@keyframes rotate-fade-out {
+  0% { transform: rotate(0deg); opacity: 1; }
+  50% { transform: rotate(180deg); opacity: 0; }
+  100% { transform: rotate(360deg); opacity: 0; }
+}

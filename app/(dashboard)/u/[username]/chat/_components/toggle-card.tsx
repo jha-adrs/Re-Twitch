@@ -68,11 +68,11 @@ export const ToggleCardSkeleton = () => {
         <div className='rounded-xl bg-accent p-4'>
       <div className="flex items-center justify-between">
             <div className="flex flex-col gap-y-1">
-            <Skeleton className="w-20 h-4" />
-            <Skeleton className="w-36 h-2" />
+            <Skeleton className="w-20 h-6" />
+            <Skeleton className="w-36 h-4" />
             </div>
             <div className="space-y-2">
-                <Skeleton className="w-14 h-4" />
+                <Skeleton className="w-12 h-8" />
             </div>
       </div>
     </div>
