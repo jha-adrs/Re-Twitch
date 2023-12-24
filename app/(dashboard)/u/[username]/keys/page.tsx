@@ -7,8 +7,9 @@ import { Button } from '@/components/ui/button';
 import { UrlCard } from './_components/url-card';
 import { KeyCard } from './_components/key-card';
 import { ConnectModal } from './_components/connect-modal';
+import { Skeleton } from '@/components/ui/skeleton';
 
-const ChatPage = async ({ params }: { params: { username: string } }) => {
+const KeyPage = async ({ params }: { params: { username: string } }) => {
 
     //await new Promise((resolve) => setTimeout(resolve, 5000));
     const self = await getSelf();
@@ -25,38 +26,16 @@ const ChatPage = async ({ params }: { params: { username: string } }) => {
             <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="text-2xl font-bold inline-blocl">
-                         Keys & URLs
+                        Keys & URLs
                     </h1>
                     <ConnectModal />
                 </div>
                 <div className="space-y-4">
-                    <UrlCard value={stream.serverUrl}/>
-                    <KeyCard value={stream.streamkey}/>
+                    <UrlCard value={stream.serverUrl} />
+                    <KeyCard value={stream.streamkey} />
                 </div>
             </div >
     )
 }
 
-export default ChatPage
-
-// export const ChatPageSkeleton = () => {
-//     return (
-//         <div className="p-6">
-//             <div className="flex items-center justify-between mb-4">
-//                 <h1 className="text-2xl font-bold inline-blocl">
-//                     Chat Settings
-//                 </h1>
-//             </div>
-//             <div className="space-y-4">
-//                 {
-//                     [...Array(3)].map((_, index) => {
-//                         return (
-//                             <ToggleCardSkeleton key={index} />
-//                         )
-//                     })
-//                 }
-
-//             </div>
-//         </div >
-//     )
-// }
+export default KeyPage

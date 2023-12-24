@@ -10,6 +10,8 @@ import React, { ElementRef, useRef, useTransition } from "react"
 import { createIngress } from "@/actions/ingress"
 import { toast } from "sonner"
 import { useCustomTheme } from "@/store/use-sidebar"
+import { useIsClient } from "usehooks-ts"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const RTMP = String(IngressInput.RTMP_INPUT);
 const WHIP = String(IngressInput.WHIP_INPUT);
@@ -17,6 +19,7 @@ const WHIP = String(IngressInput.WHIP_INPUT);
 type IngressType = typeof RTMP | typeof WHIP;
 export const ConnectModal = () => {
     const closeRef = useRef<ElementRef<"button">>(null);
+    const isClient = useIsClient();
     const [ingressType, setIngressType] = React.useState<IngressType>(RTMP);
     
     const [isPending, startTransition] = useTransition();
@@ -32,6 +35,12 @@ export const ConnectModal = () => {
         })
     }
 
+    if (!isClient) {
+        return (
+            <Skeleton className="w-36 h-10" />
+        );
+    }
+    
     return (
         <Dialog>
             <DialogTrigger asChild>
