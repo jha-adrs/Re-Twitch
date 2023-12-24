@@ -5,9 +5,9 @@ import { logger } from "./logger";
 export const isBlockedByUser = async( id:string)=>{
     try {
         const self = await getSelf();
-        if(!self) throw new Error("Not logged in");
+        if(!self)return null;
         const otherUser = await db.user.findUnique({where:{id}});
-        if(!otherUser) throw new Error("User not found");
+        if(!otherUser) return null;
         if(self.id === otherUser.id) return false;
         // Find Unique uses the indexes and is faster than findFirst
         const isBlocked = await db.block.findUnique({

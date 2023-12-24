@@ -91,3 +91,34 @@ body,
   50% { transform: rotate(180deg); opacity: 0; }
   100% { transform: rotate(360deg); opacity: 0; }
 }
+
+@keyframes glimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+
+@layer components {
+  .skeleton {
+    @apply relative overflow-hidden bg-gray-200;
+  }
+  .skeleton::after {
+    @apply block absolute w-full h-full;
+    content: "";
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      transparent 100%
+    );
+    animation: shimmer 0.5s infinite linear;
+  }
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

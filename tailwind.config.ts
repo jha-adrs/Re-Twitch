@@ -70,6 +70,11 @@ module.exports = {
           
           '100%': { opacity: 1 },
         },
+        "shimmer": {
+          "100%": {
+            "transform": "translateX(100%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -77,6 +82,7 @@ module.exports = {
         "custom-pulse": "custom-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         'rotate-fade-out': 'rotate-fade-out 1s ease-in-out forwards',
         'fade-in': 'fade-in 1s ease-in-out forwards',
+        'glimmer': 'glimmer 2s linear infinite',
       },
     },
   },
