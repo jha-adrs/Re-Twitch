@@ -10,7 +10,7 @@ import { LiveBadge } from './live-badge';
 
 
 
-const avatarSizes = cva(
+export const avatarSizes = cva(
     "",
     {
         variants: {

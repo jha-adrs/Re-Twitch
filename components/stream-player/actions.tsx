@@ -33,7 +33,7 @@ export const Actions = ({
                 toast.success(`You are now following ${data.following.username}`, { invert: theme === "dark" });
             }).catch((err) => {
                 toast.error(
-                    "Something went wrong, please try again later",
+                    "Something went wrong while following, please try again later",
                     {
                         invert: theme === "dark"
                     }
@@ -47,7 +47,7 @@ export const Actions = ({
                 toast.success(`You have unfollowed ${data.following.username}!`, { invert: theme === "dark" });
             }).catch((err) => {
                 toast.error(
-                    "Something went wrong, please try again later",
+                    "Something went wrong while unfollowing, please try again later",
                     {
                         invert: theme === "dark"
                     }
@@ -56,6 +56,7 @@ export const Actions = ({
         })
     }
     const toggleFollow = async () => {
+        
         if (!userId) {
             return router.push('/sign-in');
         }
@@ -63,15 +64,17 @@ export const Actions = ({
             return toast.error("You can't follow/unfollow yourself!", { invert: theme === "dark" });
         }
         if (isFollowing) {
-            handleFollow();
+
+            handleUnFollow();
 
         } else {
-            handleUnFollow();
+
+            handleFollow();
         }
 
 
     }
-    
+
     return (
         <Button onClick={toggleFollow} variant={"primary"} size={"sm"} className='w-full lg:w-auto' disabled={isPending}>
             <Heart className={cn(
@@ -87,6 +90,6 @@ export const Actions = ({
 
 export const ActionsSkeleton = () => {
     return (
-      <Skeleton className="h-10 w-full lg:w-24" />
+        <Skeleton className="h-10 w-full lg:w-24" />
     );
-  };
+};
