@@ -6,8 +6,14 @@ const nextConfig = {
                protocol: 'https',
                hostname: "img.clerk.com",
                pathname: '/.*',
+            },
+            {
+                protocol: 'https',
+                hostname: "utfs.io",
+                pathname: '/.*',
             }
         ],
+        domains: ['img.clerk.com', 'utfs.io'],
     }
 }
 

@@ -28,6 +28,7 @@ export const updateStream = async (values: Partial<Stream>) => {
             isChatEnabled,
             isChatFollowersOnly,
             isChatDelayed,
+            thumbnailUrl
         } =  updateStreamSchema.parse(values);
         const stream = await db.stream.update({
             where: {
@@ -38,6 +39,7 @@ export const updateStream = async (values: Partial<Stream>) => {
                 isChatEnabled,
                 isChatFollowersOnly,
                 isChatDelayed,
+                thumbnailUrl
             }
         })
         revalidatePath(`/u/${self.username}/chat`); // Creator dashboard

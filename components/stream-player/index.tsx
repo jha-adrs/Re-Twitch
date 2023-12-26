@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils";
 import { Chat, ChatSkeleton } from "./chat";
 import { ChatToggle } from "./chat-toggle";
 import { Header, HeaderSkeleton } from "./header";
+import { InfoCard } from "./info-card";
+import { AboutCard } from "./about-card";
 interface StreamPlayerProps {
     user: User & { stream: Partial<Stream> | null };
     stream: Partial<Stream>;
@@ -67,6 +69,20 @@ export const StreamPlayer = ({ user, stream, isFollowing }: StreamPlayerProps) =
                         isChatDelayed={stream?.isChatDelayed}
                         isChatFollowersOnly={stream?.isChatFollowersOnly}
                     />
+                    <InfoCard
+                        hostIdentity={user.id}
+                        viewerIdentity={identity}
+                        name={stream?.name}
+                        thumbnailUrl={stream?.thumbnailUrl}
+                    />
+                    <AboutCard
+                        hostName={user.username}
+                        hostIdentity={user.id}
+                        viewerIdentity={identity}
+                        bio={user.bio}
+                        followedByCount={0}
+                    />
+
                 </div>
                 <div className={cn(
                     "col-span-1 ",
