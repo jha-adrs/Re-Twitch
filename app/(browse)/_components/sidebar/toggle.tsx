@@ -21,7 +21,7 @@ export const Toggle = () => {
                         <Hint label={label} side='right' className='h-auto p-2'>
                         <Button variant={"ghost"} className='h-auto p-2'
                             onClick={onExpand}>
-                            <Expand className='h-5 w-5' />
+                            <Expand className='h-4 w-4' />
                         </Button>
                         </Hint>
                     </div>

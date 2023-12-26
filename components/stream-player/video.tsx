@@ -33,7 +33,7 @@ export const Video = ({hostIdentity,hostname}: VideoProps) => {
     }
 
     return (
-        <div className="aspect-video border-b group relative rounded-md p-1">
+        <div className="aspect-video border-b group relative rounded-none">
             {content}
         </div>
     )

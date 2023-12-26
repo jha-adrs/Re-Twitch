@@ -22,7 +22,7 @@ export const Container = ({ children }: ContainerProps) => {
     return (
         <div className={cn(
             "flex-1",
-            collapsed ? "ml-14" : "ml-14 lg:ml-64 "
+            collapsed ? "ml-12" : "ml-12 lg:ml-64 "
         )}>
             {children}
         </div>
