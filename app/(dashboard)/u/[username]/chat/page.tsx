@@ -43,25 +43,3 @@ const ChatPage = async ({ params }: { params: { username: string } }) => {
 }
 
 export default ChatPage
-
-export const ChatPageSkeleton = () => {
-    return (
-        <div className="p-6">
-            <div className="flex items-center justify-between mb-4">
-                <h1 className="text-2xl font-bold inline-blocl">
-                    Chat Settings
-                </h1>
-            </div>
-            <div className="space-y-4">
-                {
-                    [...Array(3)].map((_, index) => {
-                        return (
-                            <ToggleCardSkeleton key={index} />
-                        )
-                    })
-                }
-
-            </div>
-        </div >
-    )
-}
