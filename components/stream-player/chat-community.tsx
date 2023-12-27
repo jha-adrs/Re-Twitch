@@ -29,6 +29,7 @@ export const ChatCommunity = ({
   const onChange = (newValue: string) => {
     setValue(newValue);
   };
+  
 
   const filteredParticipants = useMemo(() => {
     const deduped = participants.reduce((acc, participant) => {

@@ -3,8 +3,6 @@
 import { useViewerToken } from "@/hooks/use-viewer-token";
 import { useCustomTheme } from "@/store/use-sidebar";
 import { Stream, User } from "@prisma/client"
-import { Loader2 } from "lucide-react";
-import { toast } from "sonner";
 import {  LiveKitRoom } from "@livekit/components-react"
 import { Video, VideoSkeleton } from "./video";
 import { useChatSidebar } from "@/store/use-chat-sidebar";
@@ -80,7 +78,7 @@ export const StreamPlayer = ({ user, stream, isFollowing }: StreamPlayerProps) =
                         hostIdentity={user.id}
                         viewerIdentity={identity}
                         bio={user.bio}
-                        followedByCount={0}
+                        followedByCount={user._count?.followedBy || 0}
                     />
 
                 </div>

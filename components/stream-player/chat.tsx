@@ -11,7 +11,7 @@ import { ChatList, ChatListSkeleton } from "./chat-list";
 import { ChatCommunity } from "./chat-community";
 
 interface ChatProps {
-    hostname: string;
+    hostName: string;
     hostIdentity: string;
     viewerName: string;
     isFollowing: boolean;
@@ -21,7 +21,7 @@ interface ChatProps {
 }
 
 export const Chat = ({
-    hostname,
+    hostName,
     hostIdentity,
     viewerName,
     isFollowing,
@@ -93,7 +93,7 @@ export const Chat = ({
                 variant === Chatvariant.COMMUNITY && (
                     <ChatCommunity
                         viewerName={viewerName}
-                        hostName={hostname}
+                        hostName={hostName}
                         isHidden={isHidden}
                     />
                 )
