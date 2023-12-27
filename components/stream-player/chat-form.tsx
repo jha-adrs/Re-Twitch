@@ -8,7 +8,7 @@ import { Hint } from '../hint';
 import { Info } from 'lucide-react';
 
 interface ChatFormProps {
-    onSubmit: (value: string) => void;
+    onSubmit: () => void;
     value: string;
     onChange: (value: string) => void;
     isHidden: boolean;
