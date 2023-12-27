@@ -1,9 +1,9 @@
+"use client"
 import Image from "next/image";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { LiveBadge } from "@/components/live-badge";
 import UserAvatar from "@/components/user-avatar";
-import { useCustomTheme } from "@/store/use-sidebar";
 interface ThumbnailProps {
   src: string | null;
   fallback: string;
@@ -18,7 +18,6 @@ export const Thumbnail = ({
   username,
 }: ThumbnailProps) => {
   let content;
-  const { theme } = useCustomTheme((state) => state);
   if (!src) {
     content = (
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 to-zinc-600  flex flex-col items-center justify-center gap-y-4 h-full w-full transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 rounded-md">
