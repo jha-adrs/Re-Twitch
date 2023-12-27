@@ -5,6 +5,7 @@ import { logger } from "@/lib/logger";
 import { db } from "@/lib/db";
 import { webhookCreateUserEventSchema, webhookDeleteUserEventSchema, webhookUpdateUserEventSchema } from "@/lib/validators/webhooks";
 import { ZodError } from "zod";
+import { resetIngress } from "@/actions/ingress";
 
 export async function POST(req: Request) {
     try {
@@ -85,6 +86,8 @@ export async function POST(req: Request) {
         } else if (eventType === "user.deleted") {
             const { id, deleted } = webhookDeleteUserEventSchema.parse(payload.data);
             logger.info("Webhook delete payload", { id, deleted });
+            // Delete ingresess
+            await resetIngress(id);
             const currentUser = await db.user.findUnique({
                 where: {
                     externalUserId: id
